@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  repository_dispatch:
+    types:
+      - gutenberg-rtc-pr-merged
   workflow_dispatch:
   schedule:
     - cron: '17 11 * * *'

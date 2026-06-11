@@ -31,3 +31,13 @@ When a labeled PR is missing from the changelog, the script infers the nearest G
 ## GitHub Pages
 
 `.github/workflows/pages.yml` runs daily at `11:17 UTC` and can also be triggered manually. It regenerates the data and deploys the static site to GitHub Pages.
+
+The workflow also accepts a `repository_dispatch` event named `gutenberg-rtc-pr-merged`, so an external webhook bridge or upstream workflow can trigger an immediate refresh when a Gutenberg PR is merged and has the `[Feature] Real-time Collaboration` label.
+
+Example dispatch:
+
+```bash
+gh api repos/Automattic/vip-rtc-release-tracker/dispatches \
+  -f event_type=gutenberg-rtc-pr-merged \
+  -F client_payload[pr]=79005
+```
