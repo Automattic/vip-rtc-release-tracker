@@ -30,4 +30,4 @@ When a labeled PR is missing from the changelog, the script infers the nearest G
 
 ## GitHub Pages
 
-`.github/workflows/pages.yml` runs hourly at `17` minutes past the hour and can also be triggered manually. It regenerates the data and deploys the static site to GitHub Pages.
+`.github/workflows/pages.yml` runs hourly on the hour and can also be triggered manually. It regenerates the data and deploys the static site to GitHub Pages.
