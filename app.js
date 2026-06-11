@@ -1,5 +1,6 @@
 const timeline = document.querySelector('#timeline');
 const axis = document.querySelector('#axis');
+const timelineWrap = document.querySelector('.timeline-wrap');
 const meta = document.querySelector('#meta');
 const summary = document.querySelector('#summary');
 const search = document.querySelector('#search');
@@ -11,6 +12,7 @@ const labelWidth = 300;
 let trackWidth = 1180;
 const now = new Date();
 let data;
+let didScrollToToday = false;
 
 const formatDate = new Intl.DateTimeFormat(undefined, {
 	month: 'short',
@@ -147,6 +149,12 @@ function renderAxis(min, max) {
 	axis.append(todayLabel);
 }
 
+function scrollTodayIntoView(min, max) {
+	const visibleTrackWidth = Math.max(0, timelineWrap.clientWidth - labelWidth);
+	const todayLeft = xFor(now, min, max);
+	timelineWrap.scrollLeft = Math.max(0, todayLeft - visibleTrackWidth / 2);
+}
+
 function renderSummary(prs) {
 	const releases = new Set(prs.map((pr) => pr.release.version));
 	const projected = prs.filter((pr) => pr.release.source === 'projected').length;
@@ -271,6 +279,11 @@ function render() {
 	timeline.style.width = `${labelWidth + trackWidth}px`;
 	for (const pr of prs) {
 		timeline.append(renderRow(pr, min, max));
+	}
+
+	if (!didScrollToToday) {
+		scrollTodayIntoView(min, max);
+		didScrollToToday = true;
 	}
 }
 
