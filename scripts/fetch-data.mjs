@@ -445,7 +445,7 @@ const items = prs
 			},
 		};
 	})
-	.sort((a, b) => new Date(a.mergedAt) - new Date(b.mergedAt));
+	.sort((a, b) => new Date(b.mergedAt) - new Date(a.mergedAt));
 
 const data = {
 	generatedAt: now.toISOString(),

@@ -92,7 +92,7 @@ function visiblePrs() {
 			return markerDate(pr, 'production') >= now || markerDate(pr, 'staging') >= now;
 		}
 		return true;
-	});
+	}).sort((a, b) => date(b.mergedAt) - date(a.mergedAt));
 }
 
 function bounds(prs) {
