@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>RTC PR Release Timeline</title>
+		<link rel="stylesheet" href="./styles.css" />
+	</head>
+	<body>
+		<main class="shell">
+			<header class="topbar">
+				<div>
+					<p class="eyebrow">WordPress/gutenberg</p>
+					<h1>RTC PR release timeline</h1>
+				</div>
+				<div class="meta" id="meta"></div>
+			</header>
+
+			<section class="controls" aria-label="Timeline controls">
+				<label class="field">
+					<span>Search</span>
+					<input id="search" type="search" placeholder="PR, title, release" />
+				</label>
+				<label class="field">
+					<span>Window</span>
+					<select id="window">
+						<option value="all">All</option>
+						<option value="past-90">Past 90 days</option>
+						<option value="future">Upcoming VIP dates</option>
+					</select>
+				</label>
+				<label class="toggle">
+					<input id="projectedOnly" type="checkbox" />
+					<span>Projected only</span>
+				</label>
+			</section>
+
+			<section class="summary" id="summary" aria-label="Summary"></section>
+
+			<section class="legend" aria-label="Legend">
+				<span><i class="marker merge"></i>Merged</span>
+				<span><i class="marker rc"></i>Gutenberg RC</span>
+				<span><i class="marker ga"></i>Gutenberg GA</span>
+				<span><i class="marker staging"></i>VIP staging</span>
+				<span><i class="marker production"></i>VIP production</span>
+				<span><i class="line projected"></i>Projected</span>
+			</section>
+
+			<section class="timeline-wrap">
+				<div class="axis" id="axis"></div>
+				<div class="timeline" id="timeline"></div>
+			</section>
+		</main>
+		<script type="module" src="./app.js"></script>
+	</body>
+</html>

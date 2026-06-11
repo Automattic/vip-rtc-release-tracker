@@ -1,0 +1,60 @@
+name: Generate and deploy timeline
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 11 * * *'
+
+permissions:
+  contents: read
+  id-token: write
+  pages: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    name: Generate site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Generate timeline data
+        run: npm run refresh
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GUTENBERG_DIR: /tmp/no-local-gutenberg-checkout
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Build Pages artifact directory
+        run: |
+          mkdir -p _site/data
+          cp index.html app.js styles.css _site/
+          cp data/pr-release-timeline.json _site/data/
+
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: generate
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy site
+        id: deployment
+        uses: actions/deploy-pages@v4
