@@ -183,3 +183,32 @@ test('rejects an artifact with no snapshot available by release time', async () 
 		/Could not resolve vip-integrations\/gutenberg-0\.4 for staging v20260217\.0 at 2026-02-17T13:33:27Z/
 	);
 });
+
+test('preserves a historical release whose artifact was unavailable at release time', async () => {
+	const folder = 'vip-integrations/gutenberg-0.2-20260525';
+	const route = `repos/Automattic/vip-go-mu-plugins-ext/commits?path=${encodeURIComponent(folder)}&per_page=100`;
+	const routes = new Map([
+		[route, [
+			{ sha: 'later', commit: { committer: { date: '2026-06-08T17:42:35Z' } } },
+		]],
+	]);
+	const event = {
+		channel: 'staging',
+		name: 'v20260602.1',
+		date: '2026-06-02T19:14:10Z',
+		gutenbergBuildVersion: '0.2-20260525',
+	};
+	const result = await resolveArtifactForEvent({
+		event,
+		github: fakeGithub(routes),
+		fetchText: async () => '',
+		folderChangesCache: new Map(),
+		artifactCache: new Map(),
+		allowUnavailable: true,
+	});
+	assert.deepEqual(result, {
+		...event,
+		artifact: null,
+		artifactStatus: 'unavailable-at-release',
+	});
+});

@@ -3,6 +3,9 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { applyActualVipReleases } from './lib/vip-release-history.mjs';
+import { collectVipReleaseData } from './lib/vip-release-source.mjs';
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const projectRoot = resolve(__dirname, '..');
 const owner = 'WordPress';
@@ -46,7 +49,9 @@ async function fetchText(url) {
 	});
 
 	if (!response.ok) {
-		throw new Error(`Could not fetch ${url}: HTTP ${response.status}`);
+		const error = new Error(`Could not fetch ${url}: HTTP ${response.status}`);
+		error.status = response.status;
+		throw error;
 	}
 
 	return response.text();
@@ -64,9 +69,11 @@ async function github(path, options = {}) {
 	});
 
 	if (!response.ok) {
-		throw new Error(
+		const error = new Error(
 			`GitHub API ${response.status} for ${path}: ${await response.text()}`
 		);
+		error.status = response.status;
+		throw error;
 	}
 
 	return response.json();
@@ -406,10 +413,11 @@ function scheduleFor(version, cycles, latestCycle, mergedAt) {
 }
 
 const token = getToken();
-const [prs, releases, changelog] = await Promise.all([
+const [prs, releases, changelog, vip] = await Promise.all([
 	fetchPrs(),
 	fetchReleases(),
 	readChangelog(),
+	collectVipReleaseData({ github, fetchText }),
 ]);
 const sections = parseChangelog(changelog.text);
 const cycles = buildReleaseCycles(releases);
@@ -418,7 +426,7 @@ const knownCycles = [...cycles.values()]
 	.sort((a, b) => compareVersions(a.version, b.version));
 const latestCycle = knownCycles.at(-1);
 
-const items = prs
+const projectedItems = prs
 	.map((pr) => {
 		const mappedVersion = chooseReleaseVersion(pr.number, sections);
 		const fallback = mappedVersion
@@ -446,6 +454,24 @@ const items = prs
 		};
 	})
 	.sort((a, b) => new Date(b.mergedAt) - new Date(a.mergedAt));
+const items = applyActualVipReleases(
+	projectedItems,
+	vip.releases.filter((release) => release.artifact)
+);
+const trackedPrNumbers = new Set(projectedItems.map((pr) => pr.number));
+const publishedVipReleases = vip.releases.map((release) =>
+	release.artifact
+		? {
+				...release,
+				artifact: {
+					...release.artifact,
+					prNumbers: release.artifact.prNumbers.filter((number) =>
+						trackedPrNumbers.has(number)
+					),
+				},
+			}
+		: release
+);
 
 const data = {
 	generatedAt: now.toISOString(),
@@ -455,13 +481,19 @@ const data = {
 		changelog: changelog.source,
 		releaseDocs:
 			'https://github.com/WordPress/gutenberg/blob/trunk/docs/contributors/code/release/plugin-release.md',
+		vipRepository: 'Automattic/vip-go-mu-plugins',
+		vipArtifactsRepository: 'Automattic/vip-go-mu-plugins-ext',
+		vipHistoryStart: '2026-01-27T00:00:00.000Z',
 	},
 	assumptions: [
 		'Gutenberg RC and GA dates come from GitHub releases when available.',
 		'Unreleased GA dates are projected as seven days after RC, matching the Gutenberg release documentation.',
-		'VIP staging is the first Tuesday after Gutenberg GA; VIP production is the following Tuesday.',
+		'Actual VIP staging and production dates come from first-parent channel release history and the artifact snapshot available at each release.',
+		'VIP dates remain projected from the weekly cadence only until an actual channel artifact contains the PR.',
 		'PR-to-release inclusion is read from Gutenberg changelog.txt; labeled PRs missing from the changelog are inferred from the nearest RC after merge, or projected to the next future cycle when no RC exists yet.',
 	],
+	vipChannels: vip.channels,
+	vipReleases: publishedVipReleases,
 	prs: items,
 	releases: knownCycles.map((cycle) => scheduleFor(cycle.version, cycles, latestCycle)),
 };
@@ -470,7 +502,7 @@ mkdirSync(dirname(outputPath), { recursive: true });
 writeFileSync(outputPath, `${JSON.stringify(data, null, 2)}\n`);
 
 console.log(
-	`Wrote ${items.length} ${label} PRs to ${outputPath.replace(
+	`Wrote ${items.length} ${label} PRs and ${vip.releases.length} VIP releases to ${outputPath.replace(
 		`${process.cwd()}/`,
 		''
 	)}`

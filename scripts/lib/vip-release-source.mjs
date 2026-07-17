@@ -93,6 +93,7 @@ export async function resolveArtifactForEvent({
 	fetchText,
 	folderChangesCache,
 	artifactCache,
+	allowUnavailable = false,
 }) {
 	const folder = `vip-integrations/gutenberg-${event.gutenbergBuildVersion}`;
 	if (!folderChangesCache.has(folder)) {
@@ -151,6 +152,14 @@ export async function resolveArtifactForEvent({
 		}
 	}
 
+	if (allowUnavailable) {
+		return {
+			...event,
+			artifact: null,
+			artifactStatus: 'unavailable-at-release',
+		};
+	}
+
 	throw new Error(
 		`Could not resolve ${folder} for ${event.channel} ${event.name} at ${event.date}`
 	);
@@ -170,16 +179,19 @@ export async function collectVipReleaseData({
 	const folderChangesCache = new Map();
 	const artifactCache = new Map();
 	const releases = [];
-	for (const event of histories.flatMap((history) => history.events)) {
-		releases.push(
-			await resolveArtifactForEvent({
-				event,
-				github,
-				fetchText,
-				folderChangesCache,
-				artifactCache,
-			})
-		);
+	for (const history of histories) {
+		for (const [index, event] of history.events.entries()) {
+			releases.push(
+				await resolveArtifactForEvent({
+					event,
+					github,
+					fetchText,
+					folderChangesCache,
+					artifactCache,
+					allowUnavailable: index > 0,
+				})
+			);
+		}
 	}
 	releases.sort((a, b) => new Date(a.date) - new Date(b.date));
 	const channels = Object.fromEntries(
