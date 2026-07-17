@@ -47,7 +47,14 @@ jobs:
       - name: Build Pages artifact directory
         run: |
           mkdir -p _site/data
-          cp index.html app.js render-helpers.mjs styles.css _site/
+          asset_hash=$(shasum -a 256 app.js render-helpers.mjs styles.css | shasum -a 256 | cut -c1-12)
+          cp render-helpers.mjs "_site/render-helpers.${asset_hash}.mjs"
+          cp styles.css "_site/styles.${asset_hash}.css"
+          sed "s#\\./render-helpers\\.mjs#./render-helpers.${asset_hash}.mjs#" app.js > "_site/app.${asset_hash}.js"
+          sed \
+            -e "s#\\./styles\\.css#./styles.${asset_hash}.css#" \
+            -e "s#\\./app\\.js#./app.${asset_hash}.js#" \
+            index.html > _site/index.html
           cp data/pr-release-timeline.json _site/data/
 
       - name: Upload site artifact
