@@ -4,7 +4,7 @@ import {
 	isProjected,
 	markerLink,
 	renderChannelCards,
-	renderDeploymentList,
+	renderDeploymentTimeline,
 	vipMarkerTooltip,
 } from './render-helpers.mjs';
 
@@ -186,7 +186,7 @@ function renderDeploymentHistory() {
 			deploymentStage.value === 'all' || release.channel === deploymentStage.value
 	);
 	deploymentHistory.innerHTML = releases.length
-		? renderDeploymentList(releases, (value) => formatDate.format(value))
+		? renderDeploymentTimeline(releases, (value) => formatDate.format(value))
 		: '<div class="empty">No deployments match this stage.</div>';
 }
 

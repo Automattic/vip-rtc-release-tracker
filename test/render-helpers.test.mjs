@@ -6,7 +6,7 @@ import {
 	isProjected,
 	markerLink,
 	renderChannelCards,
-	renderDeploymentList,
+	renderDeploymentTimeline,
 	vipMarkerTooltip,
 } from '../render-helpers.mjs';
 
@@ -73,7 +73,7 @@ test('spans the earliest and latest event when a VIP release predates merge', ()
 	});
 });
 
-test('renders every deployment newest-first with available artifact details', () => {
+test('renders deployments as a scrollable, chronological stage timeline', () => {
 	const releases = [
 		{
 			channel: 'staging',
@@ -114,11 +114,21 @@ test('renders every deployment newest-first with available artifact details', ()
 		},
 	];
 
-	const html = renderDeploymentList(releases, () => 'Jul 21, 2026');
-	assert.ok(html.indexOf('v20260721.0') < html.indexOf('v20260714.1'));
-	assert.match(html, /VIP production/);
+	const html = renderDeploymentTimeline(releases, () => 'Jul 21, 2026');
+	assert.match(html, /class="deployment-scroller"/);
+	assert.match(html, /class="deployment-timeline"/);
+	assert.match(html, /class="deployment-lane staging"/);
+	assert.match(html, /class="deployment-lane production"/);
+	assert.match(html, /class="deployment-marker staging"/);
+	assert.match(html, /class="deployment-marker production"/);
 	assert.match(html, /production-sha/);
 	assert.match(html, /Gutenberg 23\.5\.0/);
 	assert.match(html, /2 tracked RTC PRs/);
 	assert.match(html, /Artifact unavailable at release/);
+	assert.ok(html.indexOf('unavailable-sha') < html.indexOf('staging-sha'));
+	assert.match(html, /style="--position: \d+\.\d+%;"/);
+	assert.match(
+		html,
+		/class="deployment-tick" style="--position: -\d+\.\d+%;">May 2026/
+	);
 });

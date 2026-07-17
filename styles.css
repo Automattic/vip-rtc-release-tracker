@@ -224,74 +224,123 @@ h2 {
 	min-width: 180px;
 }
 
-.deployment-list {
-	display: grid;
-	grid-template-columns: repeat(3, minmax(0, 1fr));
-	gap: 1px;
-	background: var(--line);
-}
-
-.deployment-card {
-	display: grid;
-	gap: 10px;
-	padding: 14px 16px;
+.deployment-scroller {
+	overflow-x: auto;
+	overscroll-behavior-x: contain;
 	background: var(--panel);
-	border-top: 3px solid var(--staging);
-	font-size: 13px;
 }
 
-.deployment-card.production {
-	border-top-color: var(--production);
+.deployment-timeline {
+	width: var(--timeline-width);
+	min-width: 100%;
+	padding: 0 16px 16px;
 }
 
-.deployment-heading {
+.deployment-axis,
+.deployment-lane {
+	display: grid;
+	grid-template-columns: 112px 1fr;
+}
+
+.deployment-axis {
+	height: 40px;
+}
+
+.deployment-axis-track {
+	position: relative;
+	border-bottom: 1px solid var(--line);
+}
+
+.deployment-tick {
+	position: absolute;
+	bottom: 8px;
+	left: var(--position);
+	transform: translateX(6px);
+	color: var(--muted);
+	font-size: 11px;
+	font-weight: 700;
+	white-space: nowrap;
+}
+
+.deployment-lane-label {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
-	gap: 10px;
-}
-
-.deployment-heading a {
-	color: var(--ink);
-	font-weight: 800;
-	text-decoration: none;
-}
-
-.deployment-heading a:hover {
-	color: var(--merge);
-}
-
-.deployment-channel {
-	padding: 3px 7px;
-	border-radius: 999px;
-	background: color-mix(in srgb, var(--staging) 12%, white);
+	padding-right: 14px;
 	color: var(--staging);
-	font-size: 11px;
+	font-size: 12px;
 	font-weight: 800;
 	letter-spacing: 0;
 	text-transform: uppercase;
 }
 
-.deployment-card.production .deployment-channel {
-	background: color-mix(in srgb, var(--production) 12%, white);
+.deployment-lane.production .deployment-lane-label {
 	color: var(--production);
 }
 
-.deployment-meta {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	gap: 6px 10px;
-	color: var(--muted);
+.deployment-track {
+	position: relative;
+	height: 58px;
+	border-bottom: 1px solid rgba(216, 210, 199, 0.78);
 }
 
-.deployment-meta code {
-	overflow-wrap: anywhere;
+.deployment-track::before {
+	position: absolute;
+	top: 28px;
+	right: 0;
+	left: 0;
+	height: 2px;
+	background: color-mix(in srgb, var(--staging) 32%, var(--line));
+	content: '';
 }
 
-.artifact-unavailable {
-	color: #8b5a15;
-	font-weight: 700;
+.deployment-lane.production .deployment-track::before {
+	background: color-mix(in srgb, var(--production) 32%, var(--line));
+}
+
+.deployment-marker {
+	position: absolute;
+	top: 28px;
+	left: var(--position);
+	z-index: 1;
+	display: grid;
+	width: 22px;
+	height: 22px;
+	place-items: center;
+	transform: translate(-50%, -50%);
+	text-decoration: none;
+}
+
+.deployment-marker i {
+	display: block;
+	width: 14px;
+	height: 14px;
+	border: 2px solid white;
+	border-radius: 999px;
+	background: var(--staging);
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.24);
+	transition: transform 0.12s ease;
+}
+
+.deployment-marker.production i {
+	border-radius: 3px;
+	background: var(--production);
+	transform: rotate(45deg);
+}
+
+.deployment-marker:hover i,
+.deployment-marker:focus-visible i {
+	transform: scale(1.35);
+}
+
+.deployment-marker.production:hover i,
+.deployment-marker.production:focus-visible i {
+	transform: rotate(45deg) scale(1.35);
+}
+
+.deployment-marker:focus-visible {
+	outline: 2px solid var(--ink);
+	outline-offset: 2px;
+	border-radius: 999px;
 }
 
 .legend {
@@ -582,8 +631,10 @@ h2 {
 		width: 100%;
 	}
 
-	.deployment-list {
-		grid-template-columns: 1fr;
+
+	.deployment-axis,
+	.deployment-lane {
+		grid-template-columns: 92px 1fr;
 	}
 
 	.channel-card {
