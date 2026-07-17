@@ -1,8 +1,18 @@
+import {
+	escapeHtml,
+	eventSpan,
+	isProjected,
+	markerLink,
+	renderChannelCards,
+	vipMarkerTooltip,
+} from './render-helpers.mjs';
+
 const timeline = document.querySelector('#timeline');
 const axis = document.querySelector('#axis');
 const timelineWrap = document.querySelector('.timeline-wrap');
 const meta = document.querySelector('#meta');
 const summary = document.querySelector('#summary');
+const channels = document.querySelector('#channels');
 const search = document.querySelector('#search');
 const windowSelect = document.querySelector('#window');
 const projectedOnly = document.querySelector('#projectedOnly');
@@ -46,22 +56,6 @@ function markerDate(pr, type) {
 	}
 }
 
-function isProjected(pr, type) {
-	if (pr.release.source === 'projected' && type !== 'merge') {
-		return true;
-	}
-	if (type === 'ga') {
-		return Boolean(pr.release.ga?.projected);
-	}
-	if (type === 'staging') {
-		return Boolean(pr.release.vipStaging?.projected);
-	}
-	if (type === 'production') {
-		return Boolean(pr.release.vipProduction?.projected);
-	}
-	return false;
-}
-
 function xFor(value, minDate, maxDate) {
 	const span = maxDate - minDate || dayMs;
 	return ((value - minDate) / span) * trackWidth;
@@ -84,7 +78,11 @@ function visiblePrs() {
 		if (query && !text.includes(query)) {
 			return false;
 		}
-		if (projectedOnly.checked && pr.release.source !== 'projected') {
+		if (
+			projectedOnly.checked &&
+			!isProjected(pr, 'staging') &&
+			!isProjected(pr, 'production')
+		) {
 			return false;
 		}
 		if (mode === 'past-90') {
@@ -157,16 +155,20 @@ function scrollTodayIntoView(min, max) {
 
 function renderSummary(prs) {
 	const releases = new Set(prs.map((pr) => pr.release.version));
-	const projected = prs.filter((pr) => pr.release.source === 'projected').length;
-	const futureVip = prs.filter(
-		(pr) => markerDate(pr, 'staging') >= now || markerDate(pr, 'production') >= now
+	const actualVip = prs.filter(
+		(pr) =>
+			pr.release.vipStaging?.projected === false ||
+			pr.release.vipProduction?.projected === false
+	).length;
+	const projectedVip = prs.filter(
+		(pr) => isProjected(pr, 'staging') || isProjected(pr, 'production')
 	).length;
 
 	summary.innerHTML = [
 		['PRs', prs.length],
 		['Gutenberg releases', releases.size],
-		['Projected release', projected],
-		['Upcoming VIP', futureVip],
+		['Actual VIP', actualVip],
+		['Projected VIP', projectedVip],
 	]
 		.map(
 			([label, value]) =>
@@ -190,9 +192,15 @@ function tooltip(pr, type, value) {
 			: type === 'ga'
 				? pr.release.ga?.tagName
 				: '';
+	const marker =
+		type === 'staging'
+			? pr.release.vipStaging
+			: type === 'production'
+				? pr.release.vipProduction
+				: null;
 	return `${projected}${names[type]}<br>${formatDate.format(value)}${
 		tag ? `<br>${tag}` : ''
-	}`;
+	}${vipMarkerTooltip(marker)}`;
 }
 
 function renderRow(pr, min, max) {
@@ -216,8 +224,13 @@ function renderRow(pr, min, max) {
 	const track = document.createElement('div');
 	track.className = 'track';
 
-	const first = markerDate(pr, 'merge');
-	const last = markerDate(pr, 'production');
+	const markerValues = Object.fromEntries(
+		['merge', 'rc', 'ga', 'staging', 'production'].map((type) => [
+			type,
+			markerDate(pr, type),
+		])
+	);
+	const { first, last } = eventSpan(markerValues);
 	const bar = document.createElement('div');
 	bar.className = 'bar';
 	bar.style.left = `${xFor(first, min, max)}px`;
@@ -231,12 +244,18 @@ function renderRow(pr, min, max) {
 		}
 		const event = document.createElement('a');
 		event.className = `event ${type}${isProjected(pr, type) ? ' projected' : ''}`;
+		const marker =
+			type === 'staging'
+				? pr.release.vipStaging
+				: type === 'production'
+					? pr.release.vipProduction
+					: null;
 		event.href =
 			type === 'rc'
 				? pr.release.rc?.url || pr.url
-				: type === 'ga'
+			: type === 'ga'
 					? pr.release.ga?.url || pr.url
-					: pr.url;
+					: markerLink(pr, type, marker);
 		event.target = '_blank';
 		event.rel = 'noreferrer';
 		event.style.left = `${xFor(value, min, max)}px`;
@@ -247,19 +266,6 @@ function renderRow(pr, min, max) {
 
 	row.append(label, track);
 	return row;
-}
-
-function escapeHtml(value) {
-	return value.replace(/[&<>"']/g, (char) => {
-		const map = {
-			'&': '&amp;',
-			'<': '&lt;',
-			'>': '&gt;',
-			'"': '&quot;',
-			"'": '&#039;',
-		};
-		return map[char];
-	});
 }
 
 function render() {
@@ -296,6 +302,9 @@ async function init() {
 		<div>${data.source.label}</div>
 		<div>Generated ${formatDate.format(new Date(data.generatedAt))}</div>
 	`;
+	channels.innerHTML = renderChannelCards(data.vipChannels, (value) =>
+		formatDate.format(value)
+	);
 	render();
 }
 

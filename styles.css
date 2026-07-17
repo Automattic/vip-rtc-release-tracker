@@ -37,6 +37,7 @@ body {
 .topbar,
 .controls,
 .summary,
+.channels,
 .legend,
 .timeline-wrap {
 	background: rgba(255, 253, 250, 0.88);
@@ -150,6 +151,50 @@ select {
 	font-weight: 700;
 	letter-spacing: 0;
 	text-transform: uppercase;
+}
+
+.channels {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 1px;
+	margin-top: 14px;
+	padding: 0;
+	overflow: hidden;
+	border-radius: 8px;
+}
+
+.channel-card {
+	display: grid;
+	grid-template-columns: auto auto 1fr auto;
+	align-items: center;
+	gap: 8px 14px;
+	padding: 14px 16px;
+	background: var(--panel);
+	font-size: 13px;
+}
+
+.channel-card.staging {
+	border-top: 3px solid var(--staging);
+}
+
+.channel-card.production {
+	border-top: 3px solid var(--production);
+}
+
+.channel-heading {
+	display: flex;
+	align-items: baseline;
+	gap: 8px;
+}
+
+.channel-heading span,
+.channel-card > span {
+	color: var(--muted);
+}
+
+.channel-card code {
+	grid-column: 1 / -1;
+	overflow-wrap: anywhere;
 }
 
 .legend {
@@ -425,6 +470,14 @@ select {
 
 	.summary {
 		grid-template-columns: repeat(2, minmax(120px, 1fr));
+	}
+
+	.channels {
+		grid-template-columns: 1fr;
+	}
+
+	.channel-card {
+		grid-template-columns: 1fr auto;
 	}
 
 	.row {
