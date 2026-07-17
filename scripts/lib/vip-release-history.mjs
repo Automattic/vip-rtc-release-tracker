@@ -70,3 +70,86 @@ export function artifactCandidatesAt(commits, releasedAt) {
 				new Date(b.committedAt).getTime() - new Date(a.committedAt).getTime()
 		);
 }
+
+const channelFields = {
+	production: 'vipProduction',
+	staging: 'vipStaging',
+};
+
+function assertCompleteEvent(event) {
+	const required = [
+		'name',
+		'sha',
+		'url',
+		'date',
+		'rtcPluginVersion',
+		'gutenbergBuildVersion',
+	];
+	if (
+		required.some((key) => !event[key]) ||
+		!event.artifact?.sha ||
+		!event.artifact?.gutenbergVersion ||
+		!Array.isArray(event.artifact?.prNumbers)
+	) {
+		throw new Error(
+			`Incomplete actual ${event.channel} release ${event.name || 'unknown'}`
+		);
+	}
+}
+
+function actualMarker(event) {
+	assertCompleteEvent(event);
+	return {
+		date: event.date,
+		projected: false,
+		releaseName: event.name,
+		commitSha: event.sha,
+		url: event.url,
+		rtcPluginVersion: event.rtcPluginVersion,
+		gutenbergBuildVersion: event.gutenbergBuildVersion,
+		gutenbergVersion: event.artifact.gutenbergVersion,
+		artifactSha: event.artifact.sha,
+	};
+}
+
+export function applyActualVipReleases(prs, events) {
+	for (const event of events) {
+		assertCompleteEvent(event);
+	}
+	return prs.map((pr) => {
+		const release = { ...pr.release };
+		for (const [channel, field] of Object.entries(channelFields)) {
+			const first = events
+				.filter(
+					(event) =>
+						event.channel === channel &&
+						event.artifact.prNumbers.includes(pr.number)
+				)
+				.sort((a, b) => new Date(a.date) - new Date(b.date))[0];
+			if (first) {
+				release[field] = actualMarker(first);
+			}
+		}
+		return { ...pr, release };
+	});
+}
+
+export function buildChannelState(channel, tip, versions, events) {
+	const latest = events
+		.filter((event) => event.channel === channel)
+		.sort((a, b) => new Date(b.date) - new Date(a.date))[0];
+	if (!latest) {
+		throw new Error(`No staged RTC release found for ${channel}`);
+	}
+	return {
+		channel,
+		tip,
+		latestRelease: {
+			name: latest.name,
+			sha: latest.sha,
+			url: latest.url,
+			date: latest.date,
+		},
+		...versions,
+	};
+}

@@ -2,8 +2,10 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 
 import {
+	applyActualVipReleases,
 	HISTORY_START,
 	artifactCandidatesAt,
+	buildChannelState,
 	extractArtifactPrNumbers,
 	parseGutenbergVersion,
 	parseReleaseName,
@@ -77,5 +79,113 @@ test('orders artifact snapshots newest-first at a release timestamp', () => {
 	assert.deepEqual(
 		artifactCandidatesAt(commits, '2026-02-12T00:00:00Z').map(({ sha }) => sha),
 		['current', 'older']
+	);
+});
+
+const projectedPr = {
+	number: 79021,
+	mergedAt: '2026-07-20T00:00:00Z',
+	release: {
+		vipStaging: { date: '2026-07-28T12:00:00Z', projected: true },
+		vipProduction: { date: '2026-08-04T12:00:00Z', projected: true },
+	},
+};
+
+const actualEvents = [
+	{
+		channel: 'staging',
+		name: 'v20260707.0',
+		sha: 'staging-old',
+		url: 'https://github.com/Automattic/vip-go-mu-plugins/commit/staging-old',
+		date: '2026-07-07T17:39:27Z',
+		rtcPluginVersion: '0.3',
+		gutenbergBuildVersion: '0.2-20260706-pr79021',
+		artifact: {
+			sha: 'artifact-old',
+			url: 'https://github.com/Automattic/vip-go-mu-plugins-ext/commit/artifact-old',
+			gutenbergVersion: '23.5.0',
+			prNumbers: [79021],
+		},
+	},
+	{
+		channel: 'staging',
+		name: 'v20260714.1',
+		sha: 'staging-new',
+		url: 'https://github.com/Automattic/vip-go-mu-plugins/commit/staging-new',
+		date: '2026-07-14T17:34:40Z',
+		rtcPluginVersion: '0.3',
+		gutenbergBuildVersion: '0.2-20260706-pr79021',
+		artifact: {
+			sha: 'artifact-old',
+			url: 'https://github.com/Automattic/vip-go-mu-plugins-ext/commit/artifact-old',
+			gutenbergVersion: '23.5.0',
+			prNumbers: [79021],
+		},
+	},
+];
+
+test('uses the earliest actual channel release even before upstream merge', () => {
+	const [mapped] = applyActualVipReleases([projectedPr], actualEvents);
+	assert.deepEqual(mapped.release.vipStaging, {
+		date: '2026-07-07T17:39:27Z',
+		projected: false,
+		releaseName: 'v20260707.0',
+		commitSha: 'staging-old',
+		url: 'https://github.com/Automattic/vip-go-mu-plugins/commit/staging-old',
+		rtcPluginVersion: '0.3',
+		gutenbergBuildVersion: '0.2-20260706-pr79021',
+		gutenbergVersion: '23.5.0',
+		artifactSha: 'artifact-old',
+	});
+	assert.equal(mapped.release.vipProduction.projected, true);
+});
+
+test('retains both projected markers when no actual artifact contains the PR', () => {
+	const [mapped] = applyActualVipReleases(
+		[{ ...projectedPr, number: 80000 }],
+		actualEvents
+	);
+	assert.equal(mapped.release.vipStaging.projected, true);
+	assert.equal(mapped.release.vipProduction.projected, true);
+});
+
+test('builds current channel state from the tip and newest release event', () => {
+	assert.deepEqual(
+		buildChannelState(
+			'staging',
+			{
+				sha: 'tip-sha',
+				url: 'https://github.com/Automattic/vip-go-mu-plugins/commit/tip-sha',
+				committedAt: '2026-07-14T17:34:40Z',
+			},
+			{
+				rtcPluginVersion: '0.3',
+				gutenbergBuildVersion: '0.2-20260706-pr79021',
+			},
+			actualEvents
+		),
+		{
+			channel: 'staging',
+			tip: {
+				sha: 'tip-sha',
+				url: 'https://github.com/Automattic/vip-go-mu-plugins/commit/tip-sha',
+				committedAt: '2026-07-14T17:34:40Z',
+			},
+			latestRelease: {
+				name: 'v20260714.1',
+				sha: 'staging-new',
+				url: 'https://github.com/Automattic/vip-go-mu-plugins/commit/staging-new',
+				date: '2026-07-14T17:34:40Z',
+			},
+			rtcPluginVersion: '0.3',
+			gutenbergBuildVersion: '0.2-20260706-pr79021',
+		}
+	);
+});
+
+test('rejects incomplete actual release metadata', () => {
+	assert.throws(
+		() => applyActualVipReleases([projectedPr], [{ ...actualEvents[0], url: null }]),
+		/Incomplete actual staging release v20260707.0/
 	);
 });
