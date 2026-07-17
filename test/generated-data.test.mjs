@@ -44,6 +44,18 @@ test('actual VIP markers include authoritative commit metadata', () => {
 	assert.ok(marker.gutenbergBuildVersion);
 });
 
+test('every non-projected VIP marker has authoritative release metadata', () => {
+	for (const pr of data.prs) {
+		for (const marker of [pr.release.vipStaging, pr.release.vipProduction]) {
+			if (marker?.projected === false) {
+				assert.match(marker.commitSha, /^[0-9a-f]{40}$/);
+				assert.ok(marker.releaseName);
+				assert.match(marker.url, /Automattic\/vip-go-mu-plugins\/commit/);
+			}
+		}
+	}
+});
+
 test('published artifact membership is scoped to tracked RTC PRs', () => {
 	const tracked = new Set(data.prs.map((pr) => pr.number));
 	for (const release of data.vipReleases.filter((event) => event.artifact)) {

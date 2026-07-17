@@ -2,14 +2,14 @@
 
 Static timeline for merged Gutenberg pull requests labeled `[Feature] Real-time Collaboration`.
 
-The tracker shows each PR's merge date, Gutenberg RC and GA release dates, then projected VIP `vip-go-mu-plugins` staging and production dates:
+The tracker shows each PR's merge date, Gutenberg RC and GA dates, and its first verified VIP staging and production releases. Actual VIP dates come from the `staging` and `production` histories in `Automattic/vip-go-mu-plugins`; projected dates remain visible only until an artifact containing the PR reaches that channel.
 
-- Staging: first Tuesday after the Gutenberg GA release.
-- Production: the following Tuesday.
+The current-channel cards show the live branch tip, latest release, RTC plugin version, and RTC Gutenberg build selected for staging and production.
 
 ## Local Development
 
 ```bash
+npm test
 npm run refresh
 npm run start
 ```
@@ -18,16 +18,15 @@ Then open <http://127.0.0.1:4173/>.
 
 ## Data Refresh
 
-`npm run refresh` writes `data/pr-release-timeline.json`.
+`npm run refresh` writes `data/pr-release-timeline.json` from:
 
-The refresh script reads:
+- merged Gutenberg PRs carrying `[Feature] Real-time Collaboration`;
+- Gutenberg releases and `changelog.txt`;
+- first-parent staging and production release history in `Automattic/vip-go-mu-plugins` from January 27, 2026 onward;
+- the exact `Automattic/vip-go-mu-plugins-ext` artifact snapshot available at each VIP release.
 
-- Merged Gutenberg PRs from the GitHub API.
-- Gutenberg release dates from GitHub releases.
-- PR-to-release membership from Gutenberg `changelog.txt`.
-
-When a labeled PR is missing from the changelog, the script infers the nearest Gutenberg release cycle after the PR merge date. If the next release has not happened yet, it projects the next RC and GA from the current Gutenberg cadence.
+The refresh fails when current channel state or the newest channel release artifact cannot be resolved. A historical branch release whose selected artifact was not yet available remains in the history as `unavailable-at-release` and does not replace any projected PR marker. A PR that simply has not shipped also keeps its projected VIP dates.
 
 ## GitHub Pages
 
-`.github/workflows/pages.yml` runs hourly on the hour and can also be triggered manually. It regenerates the data and deploys the static site to GitHub Pages.
+`.github/workflows/pages.yml` runs tests, regenerates the complete dataset, and deploys the static site on pushes to `main`, manual dispatches, and every hour on the hour. New channel commits and releases therefore appear without source edits.

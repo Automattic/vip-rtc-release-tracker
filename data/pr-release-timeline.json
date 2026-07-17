@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-17T15:09:07.247Z",
+  "generatedAt": "2026-07-17T15:15:29.476Z",
   "source": {
     "repository": "WordPress/gutenberg",
     "label": "[Feature] Real-time Collaboration",
@@ -14,6 +14,7 @@
     "Unreleased GA dates are projected as seven days after RC, matching the Gutenberg release documentation.",
     "Actual VIP staging and production dates come from first-parent channel release history and the artifact snapshot available at each release.",
     "VIP dates remain projected from the weekly cadence only until an actual channel artifact contains the PR.",
+    "A historical channel release whose selected artifact was unavailable at release time is retained but does not replace a projected PR marker.",
     "PR-to-release inclusion is read from Gutenberg changelog.txt; labeled PRs missing from the changelog are inferred from the nearest RC after merge, or projected to the next future cycle when no RC exists yet."
   ],
   "vipChannels": {
@@ -8147,11 +8148,11 @@
         },
         "vipStaging": {
           "date": "2026-06-09T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2026-06-16T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -8543,11 +8544,11 @@
         },
         "vipStaging": {
           "date": "2026-05-26T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2026-06-02T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -8995,11 +8996,11 @@
         },
         "vipStaging": {
           "date": "2026-05-26T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2026-06-02T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -9042,11 +9043,11 @@
         },
         "vipStaging": {
           "date": "2026-05-26T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2026-06-02T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -9146,11 +9147,11 @@
         },
         "vipStaging": {
           "date": "2026-05-12T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2026-05-19T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -9250,11 +9251,11 @@
         },
         "vipStaging": {
           "date": "2026-05-12T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2026-05-19T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -9293,11 +9294,11 @@
         },
         "vipStaging": {
           "date": "2026-05-12T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2026-05-19T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -9454,11 +9455,11 @@
         },
         "vipStaging": {
           "date": "2026-04-28T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2026-05-05T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -10677,11 +10678,11 @@
         },
         "vipStaging": {
           "date": "2026-04-14T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2026-04-21T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -11267,11 +11268,11 @@
         },
         "vipStaging": {
           "date": "2026-04-14T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2026-04-21T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -11407,11 +11408,11 @@
         },
         "vipStaging": {
           "date": "2026-04-14T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2026-04-21T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -12038,11 +12039,11 @@
         },
         "vipStaging": {
           "date": "2026-03-31T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2026-04-07T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -12323,11 +12324,11 @@
         },
         "vipStaging": {
           "date": "2026-03-31T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2026-04-07T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -12550,11 +12551,11 @@
         },
         "vipStaging": {
           "date": "2026-03-31T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2026-04-07T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -15669,11 +15670,11 @@
         },
         "vipStaging": {
           "date": "2026-03-03T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2026-03-10T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -16007,11 +16008,11 @@
         },
         "vipStaging": {
           "date": "2026-03-03T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2026-03-10T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -16986,11 +16987,11 @@
         },
         "vipStaging": {
           "date": "2026-03-03T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2026-03-10T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -17147,11 +17148,11 @@
         },
         "vipStaging": {
           "date": "2026-02-10T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2026-02-17T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -17308,11 +17309,11 @@
         },
         "vipStaging": {
           "date": "2026-02-10T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2026-02-17T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -17589,11 +17590,11 @@
         },
         "vipStaging": {
           "date": "2026-02-10T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2026-02-17T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -17632,11 +17633,11 @@
         },
         "vipStaging": {
           "date": "2026-02-10T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2026-02-17T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -17678,11 +17679,11 @@
         },
         "vipStaging": {
           "date": "2026-02-10T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2026-02-17T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -17725,11 +17726,11 @@
         },
         "vipStaging": {
           "date": "2026-02-10T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2026-02-17T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -17831,11 +17832,11 @@
         },
         "vipStaging": {
           "date": "2026-02-10T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2026-02-17T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -18225,11 +18226,11 @@
         },
         "vipStaging": {
           "date": "2026-01-27T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2026-02-03T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -18386,11 +18387,11 @@
         },
         "vipStaging": {
           "date": "2026-01-27T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2026-02-03T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -18430,11 +18431,11 @@
         },
         "vipStaging": {
           "date": "2026-01-27T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2026-02-03T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -18644,11 +18645,11 @@
         },
         "vipStaging": {
           "date": "2026-01-27T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2026-02-03T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -18687,11 +18688,11 @@
         },
         "vipStaging": {
           "date": "2025-12-23T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2025-12-30T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -18844,11 +18845,11 @@
         },
         "vipStaging": {
           "date": "2025-12-09T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2025-12-16T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -18888,11 +18889,11 @@
         },
         "vipStaging": {
           "date": "2025-12-09T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2025-12-16T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -18931,11 +18932,11 @@
         },
         "vipStaging": {
           "date": "2025-11-25T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2025-12-02T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -18974,11 +18975,11 @@
         },
         "vipStaging": {
           "date": "2025-11-25T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2025-12-02T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -19017,11 +19018,11 @@
         },
         "vipStaging": {
           "date": "2025-11-25T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2025-12-02T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -19060,11 +19061,11 @@
         },
         "vipStaging": {
           "date": "2025-11-25T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2025-12-02T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -19103,11 +19104,11 @@
         },
         "vipStaging": {
           "date": "2025-11-11T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2025-11-18T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -19146,11 +19147,11 @@
         },
         "vipStaging": {
           "date": "2025-11-11T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2025-11-18T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -19645,11 +19646,11 @@
         },
         "vipStaging": {
           "date": "2025-08-05T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2025-08-12T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -19688,11 +19689,11 @@
         },
         "vipStaging": {
           "date": "2025-08-05T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "vipProduction": {
           "date": "2025-08-12T12:00:00.000Z",
-          "projected": false
+          "projected": true
         },
         "source": "inferred"
       }
@@ -20109,11 +20110,11 @@
       },
       "vipStaging": {
         "date": "2017-09-05T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2017-09-12T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20127,11 +20128,11 @@
       },
       "vipStaging": {
         "date": "2018-07-24T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2018-07-31T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20145,11 +20146,11 @@
       },
       "vipStaging": {
         "date": "2018-08-07T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2018-08-14T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20163,11 +20164,11 @@
       },
       "vipStaging": {
         "date": "2018-08-21T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2018-08-28T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20187,11 +20188,11 @@
       },
       "vipStaging": {
         "date": "2018-09-18T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2018-09-25T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20211,11 +20212,11 @@
       },
       "vipStaging": {
         "date": "2018-09-25T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2018-10-02T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20235,11 +20236,11 @@
       },
       "vipStaging": {
         "date": "2018-10-23T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2018-10-30T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20259,11 +20260,11 @@
       },
       "vipStaging": {
         "date": "2018-10-30T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2018-11-06T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20283,11 +20284,11 @@
       },
       "vipStaging": {
         "date": "2018-11-13T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2018-11-20T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20307,11 +20308,11 @@
       },
       "vipStaging": {
         "date": "2018-11-13T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2018-11-20T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20325,11 +20326,11 @@
       },
       "vipStaging": {
         "date": "2018-11-20T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2018-11-27T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20343,11 +20344,11 @@
       },
       "vipStaging": {
         "date": "2018-11-27T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2018-12-04T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20361,11 +20362,11 @@
       },
       "vipStaging": {
         "date": "2018-12-04T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2018-12-11T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20385,11 +20386,11 @@
       },
       "vipStaging": {
         "date": "2018-12-18T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2018-12-25T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20409,11 +20410,11 @@
       },
       "vipStaging": {
         "date": "2019-01-08T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2019-01-15T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20433,11 +20434,11 @@
       },
       "vipStaging": {
         "date": "2019-01-29T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2019-02-05T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20457,11 +20458,11 @@
       },
       "vipStaging": {
         "date": "2019-02-12T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2019-02-19T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20481,11 +20482,11 @@
       },
       "vipStaging": {
         "date": "2019-02-26T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2019-03-05T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20505,11 +20506,11 @@
       },
       "vipStaging": {
         "date": "2019-03-12T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2019-03-19T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20529,11 +20530,11 @@
       },
       "vipStaging": {
         "date": "2019-03-26T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2019-04-02T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20553,11 +20554,11 @@
       },
       "vipStaging": {
         "date": "2019-04-09T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2019-04-16T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20577,11 +20578,11 @@
       },
       "vipStaging": {
         "date": "2019-04-23T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2019-04-30T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20601,11 +20602,11 @@
       },
       "vipStaging": {
         "date": "2019-05-07T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2019-05-14T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20625,11 +20626,11 @@
       },
       "vipStaging": {
         "date": "2019-05-21T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2019-05-28T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20649,11 +20650,11 @@
       },
       "vipStaging": {
         "date": "2019-06-04T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2019-06-11T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20673,11 +20674,11 @@
       },
       "vipStaging": {
         "date": "2019-06-18T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2019-06-25T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20697,11 +20698,11 @@
       },
       "vipStaging": {
         "date": "2019-07-02T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2019-07-09T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20721,11 +20722,11 @@
       },
       "vipStaging": {
         "date": "2019-07-16T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2019-07-23T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20745,11 +20746,11 @@
       },
       "vipStaging": {
         "date": "2019-08-06T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2019-08-13T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20769,11 +20770,11 @@
       },
       "vipStaging": {
         "date": "2019-08-20T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2019-08-27T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20793,11 +20794,11 @@
       },
       "vipStaging": {
         "date": "2019-09-03T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2019-09-10T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20817,11 +20818,11 @@
       },
       "vipStaging": {
         "date": "2019-09-24T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2019-10-01T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20841,11 +20842,11 @@
       },
       "vipStaging": {
         "date": "2019-10-08T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2019-10-15T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20865,11 +20866,11 @@
       },
       "vipStaging": {
         "date": "2019-10-22T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2019-10-29T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20889,11 +20890,11 @@
       },
       "vipStaging": {
         "date": "2019-11-05T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2019-11-12T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20913,11 +20914,11 @@
       },
       "vipStaging": {
         "date": "2019-11-19T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2019-11-26T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20937,11 +20938,11 @@
       },
       "vipStaging": {
         "date": "2019-12-03T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2019-12-10T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20961,11 +20962,11 @@
       },
       "vipStaging": {
         "date": "2019-12-17T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2019-12-24T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -20985,11 +20986,11 @@
       },
       "vipStaging": {
         "date": "2020-01-14T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2020-01-21T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21009,11 +21010,11 @@
       },
       "vipStaging": {
         "date": "2020-01-28T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2020-02-04T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21033,11 +21034,11 @@
       },
       "vipStaging": {
         "date": "2020-02-11T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2020-02-18T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21057,11 +21058,11 @@
       },
       "vipStaging": {
         "date": "2020-02-18T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2020-02-25T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21081,11 +21082,11 @@
       },
       "vipStaging": {
         "date": "2020-03-03T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2020-03-10T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21105,11 +21106,11 @@
       },
       "vipStaging": {
         "date": "2020-03-17T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2020-03-24T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21129,11 +21130,11 @@
       },
       "vipStaging": {
         "date": "2020-03-31T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2020-04-07T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21153,11 +21154,11 @@
       },
       "vipStaging": {
         "date": "2020-04-21T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2020-04-28T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21177,11 +21178,11 @@
       },
       "vipStaging": {
         "date": "2020-05-05T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2020-05-12T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21201,11 +21202,11 @@
       },
       "vipStaging": {
         "date": "2020-05-19T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2020-05-26T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21225,11 +21226,11 @@
       },
       "vipStaging": {
         "date": "2020-06-02T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2020-06-09T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21249,11 +21250,11 @@
       },
       "vipStaging": {
         "date": "2020-06-16T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2020-06-23T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21273,11 +21274,11 @@
       },
       "vipStaging": {
         "date": "2020-06-30T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2020-07-07T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21297,11 +21298,11 @@
       },
       "vipStaging": {
         "date": "2020-07-14T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2020-07-21T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21321,11 +21322,11 @@
       },
       "vipStaging": {
         "date": "2020-07-28T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2020-08-04T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21345,11 +21346,11 @@
       },
       "vipStaging": {
         "date": "2020-08-11T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2020-08-18T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21369,11 +21370,11 @@
       },
       "vipStaging": {
         "date": "2020-08-25T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2020-09-01T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21393,11 +21394,11 @@
       },
       "vipStaging": {
         "date": "2020-09-08T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2020-09-15T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21417,11 +21418,11 @@
       },
       "vipStaging": {
         "date": "2020-09-22T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2020-09-29T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21441,11 +21442,11 @@
       },
       "vipStaging": {
         "date": "2020-10-06T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2020-10-13T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21465,11 +21466,11 @@
       },
       "vipStaging": {
         "date": "2020-10-27T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2020-11-03T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21489,11 +21490,11 @@
       },
       "vipStaging": {
         "date": "2020-11-10T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2020-11-17T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21513,11 +21514,11 @@
       },
       "vipStaging": {
         "date": "2020-11-24T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2020-12-01T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21537,11 +21538,11 @@
       },
       "vipStaging": {
         "date": "2020-12-08T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2020-12-15T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21561,11 +21562,11 @@
       },
       "vipStaging": {
         "date": "2020-12-29T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2021-01-05T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21585,11 +21586,11 @@
       },
       "vipStaging": {
         "date": "2021-01-12T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2021-01-19T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21609,11 +21610,11 @@
       },
       "vipStaging": {
         "date": "2021-01-26T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2021-02-02T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21633,11 +21634,11 @@
       },
       "vipStaging": {
         "date": "2021-02-09T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2021-02-16T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21657,11 +21658,11 @@
       },
       "vipStaging": {
         "date": "2021-02-23T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2021-03-02T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21681,11 +21682,11 @@
       },
       "vipStaging": {
         "date": "2021-03-09T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2021-03-16T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21705,11 +21706,11 @@
       },
       "vipStaging": {
         "date": "2021-03-23T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2021-03-30T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21729,11 +21730,11 @@
       },
       "vipStaging": {
         "date": "2021-04-06T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2021-04-13T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21753,11 +21754,11 @@
       },
       "vipStaging": {
         "date": "2021-04-20T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2021-04-27T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21777,11 +21778,11 @@
       },
       "vipStaging": {
         "date": "2021-05-04T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2021-05-11T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21801,11 +21802,11 @@
       },
       "vipStaging": {
         "date": "2021-05-18T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2021-05-25T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21825,11 +21826,11 @@
       },
       "vipStaging": {
         "date": "2021-06-01T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2021-06-08T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21849,11 +21850,11 @@
       },
       "vipStaging": {
         "date": "2021-06-15T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2021-06-22T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21873,11 +21874,11 @@
       },
       "vipStaging": {
         "date": "2021-06-29T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2021-07-06T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21897,11 +21898,11 @@
       },
       "vipStaging": {
         "date": "2021-07-13T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2021-07-20T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21921,11 +21922,11 @@
       },
       "vipStaging": {
         "date": "2021-07-27T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2021-08-03T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21945,11 +21946,11 @@
       },
       "vipStaging": {
         "date": "2021-08-10T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2021-08-17T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21969,11 +21970,11 @@
       },
       "vipStaging": {
         "date": "2021-08-24T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2021-08-31T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -21993,11 +21994,11 @@
       },
       "vipStaging": {
         "date": "2021-09-07T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2021-09-14T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22017,11 +22018,11 @@
       },
       "vipStaging": {
         "date": "2021-09-21T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2021-09-28T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22041,11 +22042,11 @@
       },
       "vipStaging": {
         "date": "2021-10-05T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2021-10-12T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22065,11 +22066,11 @@
       },
       "vipStaging": {
         "date": "2021-10-19T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2021-10-26T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22089,11 +22090,11 @@
       },
       "vipStaging": {
         "date": "2021-11-02T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2021-11-09T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22113,11 +22114,11 @@
       },
       "vipStaging": {
         "date": "2021-11-16T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2021-11-23T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22137,11 +22138,11 @@
       },
       "vipStaging": {
         "date": "2021-11-30T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2021-12-07T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22161,11 +22162,11 @@
       },
       "vipStaging": {
         "date": "2021-12-14T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2021-12-21T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22185,11 +22186,11 @@
       },
       "vipStaging": {
         "date": "2021-12-28T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2022-01-04T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22209,11 +22210,11 @@
       },
       "vipStaging": {
         "date": "2022-01-11T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2022-01-18T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22233,11 +22234,11 @@
       },
       "vipStaging": {
         "date": "2022-01-25T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2022-02-01T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22257,11 +22258,11 @@
       },
       "vipStaging": {
         "date": "2022-02-08T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2022-02-15T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22281,11 +22282,11 @@
       },
       "vipStaging": {
         "date": "2022-02-22T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2022-03-01T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22305,11 +22306,11 @@
       },
       "vipStaging": {
         "date": "2022-03-08T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2022-03-15T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22329,11 +22330,11 @@
       },
       "vipStaging": {
         "date": "2022-03-22T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2022-03-29T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22353,11 +22354,11 @@
       },
       "vipStaging": {
         "date": "2022-04-05T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2022-04-12T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22377,11 +22378,11 @@
       },
       "vipStaging": {
         "date": "2022-04-19T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2022-04-26T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22401,11 +22402,11 @@
       },
       "vipStaging": {
         "date": "2022-05-03T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2022-05-10T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22425,11 +22426,11 @@
       },
       "vipStaging": {
         "date": "2022-05-17T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2022-05-24T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22449,11 +22450,11 @@
       },
       "vipStaging": {
         "date": "2022-05-31T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2022-06-07T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22473,11 +22474,11 @@
       },
       "vipStaging": {
         "date": "2022-06-14T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2022-06-21T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22497,11 +22498,11 @@
       },
       "vipStaging": {
         "date": "2022-06-28T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2022-07-05T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22521,11 +22522,11 @@
       },
       "vipStaging": {
         "date": "2022-07-12T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2022-07-19T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22545,11 +22546,11 @@
       },
       "vipStaging": {
         "date": "2022-07-26T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2022-08-02T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22569,11 +22570,11 @@
       },
       "vipStaging": {
         "date": "2022-08-09T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2022-08-16T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22593,11 +22594,11 @@
       },
       "vipStaging": {
         "date": "2022-08-23T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2022-08-30T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22617,11 +22618,11 @@
       },
       "vipStaging": {
         "date": "2022-09-06T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2022-09-13T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22641,11 +22642,11 @@
       },
       "vipStaging": {
         "date": "2022-09-20T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2022-09-27T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22665,11 +22666,11 @@
       },
       "vipStaging": {
         "date": "2022-10-04T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2022-10-11T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22689,11 +22690,11 @@
       },
       "vipStaging": {
         "date": "2022-10-18T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2022-10-25T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22713,11 +22714,11 @@
       },
       "vipStaging": {
         "date": "2022-11-01T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2022-11-08T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22737,11 +22738,11 @@
       },
       "vipStaging": {
         "date": "2022-11-15T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2022-11-22T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22761,11 +22762,11 @@
       },
       "vipStaging": {
         "date": "2022-11-29T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2022-12-06T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22785,11 +22786,11 @@
       },
       "vipStaging": {
         "date": "2022-12-13T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2022-12-20T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22809,11 +22810,11 @@
       },
       "vipStaging": {
         "date": "2022-12-27T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2023-01-03T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22833,11 +22834,11 @@
       },
       "vipStaging": {
         "date": "2023-01-10T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2023-01-17T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22857,11 +22858,11 @@
       },
       "vipStaging": {
         "date": "2023-01-24T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2023-01-31T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22881,11 +22882,11 @@
       },
       "vipStaging": {
         "date": "2023-02-14T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2023-02-21T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22905,11 +22906,11 @@
       },
       "vipStaging": {
         "date": "2023-02-28T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2023-03-07T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22929,11 +22930,11 @@
       },
       "vipStaging": {
         "date": "2023-03-14T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2023-03-21T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22953,11 +22954,11 @@
       },
       "vipStaging": {
         "date": "2023-03-28T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2023-04-04T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -22977,11 +22978,11 @@
       },
       "vipStaging": {
         "date": "2023-04-11T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2023-04-18T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23001,11 +23002,11 @@
       },
       "vipStaging": {
         "date": "2023-04-25T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2023-05-02T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23025,11 +23026,11 @@
       },
       "vipStaging": {
         "date": "2023-05-09T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2023-05-16T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23049,11 +23050,11 @@
       },
       "vipStaging": {
         "date": "2023-05-23T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2023-05-30T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23073,11 +23074,11 @@
       },
       "vipStaging": {
         "date": "2023-06-06T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2023-06-13T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23097,11 +23098,11 @@
       },
       "vipStaging": {
         "date": "2023-06-20T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2023-06-27T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23121,11 +23122,11 @@
       },
       "vipStaging": {
         "date": "2023-07-04T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2023-07-11T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23145,11 +23146,11 @@
       },
       "vipStaging": {
         "date": "2023-07-18T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2023-07-25T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23169,11 +23170,11 @@
       },
       "vipStaging": {
         "date": "2023-08-01T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2023-08-08T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23193,11 +23194,11 @@
       },
       "vipStaging": {
         "date": "2023-08-15T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2023-08-22T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23217,11 +23218,11 @@
       },
       "vipStaging": {
         "date": "2023-08-29T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2023-09-05T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23241,11 +23242,11 @@
       },
       "vipStaging": {
         "date": "2023-09-12T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2023-09-19T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23265,11 +23266,11 @@
       },
       "vipStaging": {
         "date": "2023-10-03T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2023-10-10T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23289,11 +23290,11 @@
       },
       "vipStaging": {
         "date": "2023-10-17T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2023-10-24T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23313,11 +23314,11 @@
       },
       "vipStaging": {
         "date": "2023-10-31T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2023-11-07T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23337,11 +23338,11 @@
       },
       "vipStaging": {
         "date": "2023-11-14T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2023-11-21T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23361,11 +23362,11 @@
       },
       "vipStaging": {
         "date": "2023-11-28T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2023-12-05T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23385,11 +23386,11 @@
       },
       "vipStaging": {
         "date": "2023-12-12T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2023-12-19T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23409,11 +23410,11 @@
       },
       "vipStaging": {
         "date": "2023-12-26T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2024-01-02T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23433,11 +23434,11 @@
       },
       "vipStaging": {
         "date": "2024-01-09T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2024-01-16T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23457,11 +23458,11 @@
       },
       "vipStaging": {
         "date": "2024-01-23T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2024-01-30T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23481,11 +23482,11 @@
       },
       "vipStaging": {
         "date": "2024-02-06T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2024-02-13T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23505,11 +23506,11 @@
       },
       "vipStaging": {
         "date": "2024-02-20T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2024-02-27T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23529,11 +23530,11 @@
       },
       "vipStaging": {
         "date": "2024-03-05T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2024-03-12T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23553,11 +23554,11 @@
       },
       "vipStaging": {
         "date": "2024-03-19T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2024-03-26T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23577,11 +23578,11 @@
       },
       "vipStaging": {
         "date": "2024-04-02T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2024-04-09T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23601,11 +23602,11 @@
       },
       "vipStaging": {
         "date": "2024-04-16T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2024-04-23T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23625,11 +23626,11 @@
       },
       "vipStaging": {
         "date": "2024-04-30T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2024-05-07T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23649,11 +23650,11 @@
       },
       "vipStaging": {
         "date": "2024-05-14T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2024-05-21T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23673,11 +23674,11 @@
       },
       "vipStaging": {
         "date": "2024-05-28T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2024-06-04T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23697,11 +23698,11 @@
       },
       "vipStaging": {
         "date": "2024-06-11T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2024-06-18T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23721,11 +23722,11 @@
       },
       "vipStaging": {
         "date": "2024-06-25T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2024-07-02T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23745,11 +23746,11 @@
       },
       "vipStaging": {
         "date": "2024-07-09T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2024-07-16T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23769,11 +23770,11 @@
       },
       "vipStaging": {
         "date": "2024-07-23T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2024-07-30T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23793,11 +23794,11 @@
       },
       "vipStaging": {
         "date": "2024-08-06T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2024-08-13T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23817,11 +23818,11 @@
       },
       "vipStaging": {
         "date": "2024-08-20T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2024-08-27T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23841,11 +23842,11 @@
       },
       "vipStaging": {
         "date": "2024-09-03T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2024-09-10T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23865,11 +23866,11 @@
       },
       "vipStaging": {
         "date": "2024-09-17T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2024-09-24T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23889,11 +23890,11 @@
       },
       "vipStaging": {
         "date": "2024-10-01T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2024-10-08T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23913,11 +23914,11 @@
       },
       "vipStaging": {
         "date": "2024-10-15T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2024-10-22T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23937,11 +23938,11 @@
       },
       "vipStaging": {
         "date": "2024-10-29T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2024-11-05T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23961,11 +23962,11 @@
       },
       "vipStaging": {
         "date": "2024-11-12T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2024-11-19T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -23985,11 +23986,11 @@
       },
       "vipStaging": {
         "date": "2024-11-26T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2024-12-03T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24009,11 +24010,11 @@
       },
       "vipStaging": {
         "date": "2024-12-10T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2024-12-17T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24033,11 +24034,11 @@
       },
       "vipStaging": {
         "date": "2024-12-24T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2024-12-31T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24057,11 +24058,11 @@
       },
       "vipStaging": {
         "date": "2025-01-14T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2025-01-21T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24081,11 +24082,11 @@
       },
       "vipStaging": {
         "date": "2025-01-28T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2025-02-04T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24105,11 +24106,11 @@
       },
       "vipStaging": {
         "date": "2025-02-11T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2025-02-18T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24129,11 +24130,11 @@
       },
       "vipStaging": {
         "date": "2025-02-25T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2025-03-04T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24153,11 +24154,11 @@
       },
       "vipStaging": {
         "date": "2025-03-11T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2025-03-18T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24177,11 +24178,11 @@
       },
       "vipStaging": {
         "date": "2025-03-25T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2025-04-01T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24201,11 +24202,11 @@
       },
       "vipStaging": {
         "date": "2025-04-08T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2025-04-15T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24225,11 +24226,11 @@
       },
       "vipStaging": {
         "date": "2025-04-29T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2025-05-06T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24249,11 +24250,11 @@
       },
       "vipStaging": {
         "date": "2025-05-20T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2025-05-27T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24273,11 +24274,11 @@
       },
       "vipStaging": {
         "date": "2025-06-03T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2025-06-10T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24297,11 +24298,11 @@
       },
       "vipStaging": {
         "date": "2025-06-17T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2025-06-24T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24321,11 +24322,11 @@
       },
       "vipStaging": {
         "date": "2025-07-08T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2025-07-15T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24345,11 +24346,11 @@
       },
       "vipStaging": {
         "date": "2025-07-22T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2025-07-29T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24369,11 +24370,11 @@
       },
       "vipStaging": {
         "date": "2025-08-05T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2025-08-12T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24393,11 +24394,11 @@
       },
       "vipStaging": {
         "date": "2025-08-19T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2025-08-26T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24417,11 +24418,11 @@
       },
       "vipStaging": {
         "date": "2025-09-02T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2025-09-09T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24441,11 +24442,11 @@
       },
       "vipStaging": {
         "date": "2025-09-16T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2025-09-23T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24465,11 +24466,11 @@
       },
       "vipStaging": {
         "date": "2025-09-30T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2025-10-07T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24489,11 +24490,11 @@
       },
       "vipStaging": {
         "date": "2025-10-14T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2025-10-21T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24513,11 +24514,11 @@
       },
       "vipStaging": {
         "date": "2025-10-28T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2025-11-04T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24537,11 +24538,11 @@
       },
       "vipStaging": {
         "date": "2025-11-11T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2025-11-18T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24561,11 +24562,11 @@
       },
       "vipStaging": {
         "date": "2025-11-25T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2025-12-02T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24585,11 +24586,11 @@
       },
       "vipStaging": {
         "date": "2025-12-09T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2025-12-16T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24609,11 +24610,11 @@
       },
       "vipStaging": {
         "date": "2025-12-23T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2025-12-30T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24633,11 +24634,11 @@
       },
       "vipStaging": {
         "date": "2026-01-27T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2026-02-03T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24657,11 +24658,11 @@
       },
       "vipStaging": {
         "date": "2026-02-10T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2026-02-17T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24681,11 +24682,11 @@
       },
       "vipStaging": {
         "date": "2026-03-03T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2026-03-10T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24705,11 +24706,11 @@
       },
       "vipStaging": {
         "date": "2026-03-17T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2026-03-24T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24729,11 +24730,11 @@
       },
       "vipStaging": {
         "date": "2026-03-31T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2026-04-07T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24753,11 +24754,11 @@
       },
       "vipStaging": {
         "date": "2026-04-14T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2026-04-21T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24777,11 +24778,11 @@
       },
       "vipStaging": {
         "date": "2026-04-28T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2026-05-05T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24801,11 +24802,11 @@
       },
       "vipStaging": {
         "date": "2026-05-12T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2026-05-19T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24825,11 +24826,11 @@
       },
       "vipStaging": {
         "date": "2026-05-26T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2026-06-02T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24849,11 +24850,11 @@
       },
       "vipStaging": {
         "date": "2026-06-09T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2026-06-16T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24873,11 +24874,11 @@
       },
       "vipStaging": {
         "date": "2026-06-23T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2026-06-30T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {
@@ -24897,11 +24898,11 @@
       },
       "vipStaging": {
         "date": "2026-07-07T12:00:00.000Z",
-        "projected": false
+        "projected": true
       },
       "vipProduction": {
         "date": "2026-07-14T12:00:00.000Z",
-        "projected": false
+        "projected": true
       }
     },
     {

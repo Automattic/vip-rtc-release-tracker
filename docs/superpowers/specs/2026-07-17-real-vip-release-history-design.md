@@ -86,7 +86,7 @@ Artifact folder names were historically reused, especially `gutenberg-0.2`, so r
 
 Each unique `(artifact folder, artifact commit)` pair will be resolved once per refresh and shared by every channel event that used it.
 
-If an artifact cannot be resolved for an actual release event, generation will stop with an error that names the channel release, artifact folder, and attempted timestamp. The tracker will not silently substitute a projection for missing actual history.
+If the newest release for either channel cannot resolve an artifact, generation stops with an error that names the channel release, artifact folder, and attempted timestamp. A historical branch release whose selected artifact was not yet available is retained with `artifactStatus: "unavailable-at-release"`; it cannot replace a projected PR marker. This models the observed June 2 staging release without inventing artifact contents or a ship date.
 
 ### PR release mapping
 
@@ -154,11 +154,11 @@ Generation will fail with a descriptive error when:
 - a current branch cannot be read;
 - the current integration file does not contain both expected constants;
 - a historical release message cannot be normalized;
-- an artifact snapshot cannot be resolved at the release timestamp;
+- the newest channel release's artifact snapshot cannot be resolved at the release timestamp;
 - artifact metadata or changelog content cannot be parsed;
 - an actual marker lacks its release commit metadata.
 
-A tracked PR that simply has not appeared in an actual release is not an error; it retains its projected marker.
+A tracked PR that simply has not appeared in an actual release is not an error; it retains its projected marker. Historical branch releases with no artifact available at their timestamp also retain projections and are explicitly marked in generated history.
 
 ## Testing
 
@@ -181,7 +181,7 @@ After unit tests, verification will run a fresh data refresh, validate the gener
 
 - Generated `vipChannels.staging.tip.sha` and `vipChannels.production.tip.sha` match the GitHub branch endpoints at refresh time.
 - Generated history contains every staging and production release carrying both staged RTC constants since January 27, 2026.
-- Every historical event records the RTC versions from that exact release commit and artifact metadata from the snapshot available at that time.
+- Every historical event records the RTC versions from that exact release commit and either artifact metadata from the snapshot available at that time or an explicit `unavailable-at-release` status.
 - A tracked PR receives the earliest verifiable actual staging and production markers and retains projections only for channels where no actual release contains it.
 - Current-channel cards and actual marker tooltips link to the authoritative commits.
 - `npm test` and `npm run refresh` run successfully in the Pages workflow before deployment.

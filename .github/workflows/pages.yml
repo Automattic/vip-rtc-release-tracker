@@ -30,6 +30,9 @@ jobs:
         with:
           node-version: 22
 
+      - name: Run tests
+        run: npm test
+
       - name: Generate timeline data
         run: npm run refresh
         env:
@@ -44,7 +47,7 @@ jobs:
       - name: Build Pages artifact directory
         run: |
           mkdir -p _site/data
-          cp index.html app.js styles.css _site/
+          cp index.html app.js render-helpers.mjs styles.css _site/
           cp data/pr-release-timeline.json _site/data/
 
       - name: Upload site artifact

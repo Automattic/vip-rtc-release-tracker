@@ -4,6 +4,8 @@
 
 **Goal:** Replace inferred VIP release dates with verifiable staging and production history while keeping unreleased projections and refreshing live channel state during every Pages build.
 
+> **Implementation finding:** Live verification found that staging release `v20260602.1` selected `gutenberg-0.2-20260525` before that artifact reached the artifact repository. The implementation retains such historical branch releases as `unavailable-at-release`, does not map their PRs as shipped, and continues to fail when the newest release on either channel cannot resolve.
+
 **Architecture:** Add a pure release-history library for parsing and PR mapping, plus an injected GitHub source module that walks first-parent release history and resolves the exact external artifact snapshot available at each release. The existing generator will merge actual events into projected PR schedules, and the static client will render current-channel cards and richer actual-release tooltips.
 
 **Tech Stack:** Node.js 22, ECMAScript modules, built-in `node:test`, GitHub REST/GraphQL APIs, vanilla HTML/CSS/JavaScript, GitHub Actions and Pages.

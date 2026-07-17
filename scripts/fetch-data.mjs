@@ -400,13 +400,13 @@ function scheduleFor(version, cycles, latestCycle, mergedAt) {
 		vipStaging: stagingDate
 			? {
 					date: iso(stagingDate),
-					projected: ga?.projected || stagingDate > now,
+					projected: true,
 			  }
 			: null,
 		vipProduction: productionDate
 			? {
 					date: iso(productionDate),
-					projected: ga?.projected || productionDate > now,
+					projected: true,
 			  }
 			: null,
 	};
@@ -490,6 +490,7 @@ const data = {
 		'Unreleased GA dates are projected as seven days after RC, matching the Gutenberg release documentation.',
 		'Actual VIP staging and production dates come from first-parent channel release history and the artifact snapshot available at each release.',
 		'VIP dates remain projected from the weekly cadence only until an actual channel artifact contains the PR.',
+		'A historical channel release whose selected artifact was unavailable at release time is retained but does not replace a projected PR marker.',
 		'PR-to-release inclusion is read from Gutenberg changelog.txt; labeled PRs missing from the changelog are inferred from the nearest RC after merge, or projected to the next future cycle when no RC exists yet.',
 	],
 	vipChannels: vip.channels,
