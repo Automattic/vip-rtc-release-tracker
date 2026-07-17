@@ -6,6 +6,8 @@ The tracker shows each PR's merge date, Gutenberg RC and GA dates, and its first
 
 The current-channel cards show the live branch tip, latest release, RTC plugin version, and RTC Gutenberg build selected for staging and production.
 
+The VIP deployment history lists every verified staging and production release independently of the PR timeline. It has its own stage filter and shows the release commit, timestamp, RTC version/build, packaged Gutenberg version, and any historical artifact-unavailable state.
+
 ## Local Development
 
 ```bash

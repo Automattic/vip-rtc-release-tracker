@@ -31,6 +31,34 @@ export function renderChannelCards(channels, formatDate) {
 		.join('');
 }
 
+export function renderDeploymentList(releases, formatDate) {
+	return [...releases]
+		.sort((left, right) => new Date(right.date) - new Date(left.date))
+		.map((release) => {
+			const artifact = release.artifact;
+			const prCount = artifact?.prNumbers?.length || 0;
+			const artifactDetails = artifact
+				? `<span>Gutenberg ${escapeHtml(artifact.gutenbergVersion)}</span>
+					<span>${prCount} tracked RTC PR${prCount === 1 ? '' : 's'}</span>`
+				: '<span class="artifact-unavailable">Artifact unavailable at release</span>';
+			return `<article class="deployment-card ${escapeHtml(release.channel)}">
+				<div class="deployment-heading">
+					<span class="deployment-channel">VIP ${escapeHtml(release.channel)}</span>
+					<a href="${escapeHtml(release.url)}" target="_blank" rel="noreferrer">${escapeHtml(
+						release.name
+					)}</a>
+				</div>
+				<div class="deployment-meta">
+					<span>${escapeHtml(formatDate(new Date(release.date)))}</span>
+					<span>RTC ${escapeHtml(release.rtcPluginVersion)}</span>
+					<code>${escapeHtml(release.gutenbergBuildVersion)}</code>
+					${artifactDetails}
+				</div>
+			</article>`;
+		})
+		.join('');
+}
+
 export function vipMarkerTooltip(marker) {
 	if (!marker || marker.projected !== false) {
 		return '';

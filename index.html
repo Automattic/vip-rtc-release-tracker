@@ -37,6 +37,27 @@
 
 			<section class="summary" id="summary" aria-label="Summary"></section>
 			<section class="channels" id="channels" aria-label="Current VIP channels"></section>
+			<section class="deployment-section" aria-labelledby="deployment-heading">
+				<div class="deployment-section-header">
+					<div>
+						<p class="eyebrow">Independent of PR timelines</p>
+						<h2 id="deployment-heading">VIP deployment history</h2>
+					</div>
+					<label class="field deployment-filter">
+						<span>Stage</span>
+						<select id="deployment-stage">
+							<option value="all">All deployments</option>
+							<option value="staging">Staging</option>
+							<option value="production">Production</option>
+						</select>
+					</label>
+				</div>
+				<div
+					class="deployment-list"
+					id="deployment-history"
+					aria-label="VIP deployment releases"
+				></div>
+			</section>
 
 			<section class="legend" aria-label="Legend">
 				<span><i class="marker merge"></i>Merged</span>

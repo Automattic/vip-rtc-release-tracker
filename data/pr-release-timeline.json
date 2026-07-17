@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-17T15:15:29.476Z",
+  "generatedAt": "2026-07-17T18:06:32.586Z",
   "source": {
     "repository": "WordPress/gutenberg",
     "label": "[Feature] Real-time Collaboration",
@@ -6860,6 +6860,50 @@
     }
   ],
   "prs": [
+    {
+      "number": 79685,
+      "title": "RTC: Use requestAnimationFrame for awareness cursor resize redraws",
+      "url": "https://github.com/WordPress/gutenberg/pull/79685",
+      "author": {
+        "login": "giteshsarvaiya",
+        "url": "https://github.com/giteshsarvaiya"
+      },
+      "mergedAt": "2026-07-17T16:41:36Z",
+      "mergeCommit": {
+        "oid": "e97eb7575553791211825b84f1d1c6774817df4c",
+        "committedDate": "2026-07-17T16:41:36Z"
+      },
+      "labels": [
+        "[Type] Bug",
+        "[Package] Editor",
+        "First-time Contributor",
+        "[Feature] Real-time Collaboration"
+      ],
+      "release": {
+        "version": "23.7.0",
+        "rc": {
+          "tagName": "v23.7.0-rc.1",
+          "date": "2026-07-28T14:12:31.000Z",
+          "url": null,
+          "projected": true
+        },
+        "ga": {
+          "tagName": "v23.7.0",
+          "date": "2026-08-04T14:12:31.000Z",
+          "url": null,
+          "projected": true
+        },
+        "vipStaging": {
+          "date": "2026-08-11T12:00:00.000Z",
+          "projected": true
+        },
+        "vipProduction": {
+          "date": "2026-08-18T12:00:00.000Z",
+          "projected": true
+        },
+        "source": "projected"
+      }
+    },
     {
       "number": 79911,
       "title": "RTC: Fix empty revision from peer autosave",

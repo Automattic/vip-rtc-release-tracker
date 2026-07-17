@@ -6,6 +6,7 @@ import {
 	isProjected,
 	markerLink,
 	renderChannelCards,
+	renderDeploymentList,
 	vipMarkerTooltip,
 } from '../render-helpers.mjs';
 
@@ -70,4 +71,54 @@ test('spans the earliest and latest event when a VIP release predates merge', ()
 		first: values.staging,
 		last: values.production,
 	});
+});
+
+test('renders every deployment newest-first with available artifact details', () => {
+	const releases = [
+		{
+			channel: 'staging',
+			name: 'v20260714.1',
+			sha: 'staging-sha',
+			url: 'https://github.com/Automattic/vip-go-mu-plugins/commit/staging-sha',
+			date: '2026-07-14T17:34:40Z',
+			rtcPluginVersion: '0.3',
+			gutenbergBuildVersion: '0.2-20260706-pr79021',
+			artifact: {
+				gutenbergVersion: '23.5.0',
+				prNumbers: [79021, 79911],
+			},
+		},
+		{
+			channel: 'production',
+			name: 'v20260721.0',
+			sha: 'production-sha',
+			url: 'https://github.com/Automattic/vip-go-mu-plugins/commit/production-sha',
+			date: '2026-07-21T17:11:57Z',
+			rtcPluginVersion: '0.3',
+			gutenbergBuildVersion: '0.2-20260706-pr79021',
+			artifact: {
+				gutenbergVersion: '23.5.0',
+				prNumbers: [79021],
+			},
+		},
+		{
+			channel: 'staging',
+			name: 'v20260602.1',
+			sha: 'unavailable-sha',
+			url: 'https://github.com/Automattic/vip-go-mu-plugins/commit/unavailable-sha',
+			date: '2026-06-02T19:14:10Z',
+			rtcPluginVersion: '0.2',
+			gutenbergBuildVersion: '0.2-20260525',
+			artifact: null,
+			artifactStatus: 'unavailable-at-release',
+		},
+	];
+
+	const html = renderDeploymentList(releases, () => 'Jul 21, 2026');
+	assert.ok(html.indexOf('v20260721.0') < html.indexOf('v20260714.1'));
+	assert.match(html, /VIP production/);
+	assert.match(html, /production-sha/);
+	assert.match(html, /Gutenberg 23\.5\.0/);
+	assert.match(html, /2 tracked RTC PRs/);
+	assert.match(html, /Artifact unavailable at release/);
 });

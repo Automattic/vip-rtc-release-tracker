@@ -4,6 +4,7 @@ import {
 	isProjected,
 	markerLink,
 	renderChannelCards,
+	renderDeploymentList,
 	vipMarkerTooltip,
 } from './render-helpers.mjs';
 
@@ -13,9 +14,11 @@ const timelineWrap = document.querySelector('.timeline-wrap');
 const meta = document.querySelector('#meta');
 const summary = document.querySelector('#summary');
 const channels = document.querySelector('#channels');
+const deploymentHistory = document.querySelector('#deployment-history');
 const search = document.querySelector('#search');
 const windowSelect = document.querySelector('#window');
 const projectedOnly = document.querySelector('#projectedOnly');
+const deploymentStage = document.querySelector('#deployment-stage');
 
 const dayMs = 24 * 60 * 60 * 1000;
 const labelWidth = 300;
@@ -177,6 +180,16 @@ function renderSummary(prs) {
 		.join('');
 }
 
+function renderDeploymentHistory() {
+	const releases = data.vipReleases.filter(
+		(release) =>
+			deploymentStage.value === 'all' || release.channel === deploymentStage.value
+	);
+	deploymentHistory.innerHTML = releases.length
+		? renderDeploymentList(releases, (value) => formatDate.format(value))
+		: '<div class="empty">No deployments match this stage.</div>';
+}
+
 function tooltip(pr, type, value) {
 	const names = {
 		merge: 'Merged',
@@ -305,12 +318,14 @@ async function init() {
 	channels.innerHTML = renderChannelCards(data.vipChannels, (value) =>
 		formatDate.format(value)
 	);
+	renderDeploymentHistory();
 	render();
 }
 
 search.addEventListener('input', render);
 windowSelect.addEventListener('change', render);
 projectedOnly.addEventListener('change', render);
+deploymentStage.addEventListener('change', renderDeploymentHistory);
 
 init().catch((error) => {
 	timeline.innerHTML = `<div class="empty">${escapeHtml(error.message)}</div>`;

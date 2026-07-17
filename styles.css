@@ -38,6 +38,7 @@ body {
 .controls,
 .summary,
 .channels,
+.deployment-section,
 .legend,
 .timeline-wrap {
 	background: rgba(255, 253, 250, 0.88);
@@ -195,6 +196,102 @@ select {
 .channel-card code {
 	grid-column: 1 / -1;
 	overflow-wrap: anywhere;
+}
+
+.deployment-section {
+	margin-top: 14px;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.deployment-section-header {
+	display: flex;
+	align-items: end;
+	justify-content: space-between;
+	gap: 18px;
+	padding: 18px 16px;
+	background: var(--panel);
+	border-bottom: 1px solid var(--line);
+}
+
+h2 {
+	margin: 0;
+	font-size: 22px;
+	line-height: 1.1;
+}
+
+.deployment-filter {
+	min-width: 180px;
+}
+
+.deployment-list {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1px;
+	background: var(--line);
+}
+
+.deployment-card {
+	display: grid;
+	gap: 10px;
+	padding: 14px 16px;
+	background: var(--panel);
+	border-top: 3px solid var(--staging);
+	font-size: 13px;
+}
+
+.deployment-card.production {
+	border-top-color: var(--production);
+}
+
+.deployment-heading {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+}
+
+.deployment-heading a {
+	color: var(--ink);
+	font-weight: 800;
+	text-decoration: none;
+}
+
+.deployment-heading a:hover {
+	color: var(--merge);
+}
+
+.deployment-channel {
+	padding: 3px 7px;
+	border-radius: 999px;
+	background: color-mix(in srgb, var(--staging) 12%, white);
+	color: var(--staging);
+	font-size: 11px;
+	font-weight: 800;
+	letter-spacing: 0;
+	text-transform: uppercase;
+}
+
+.deployment-card.production .deployment-channel {
+	background: color-mix(in srgb, var(--production) 12%, white);
+	color: var(--production);
+}
+
+.deployment-meta {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 6px 10px;
+	color: var(--muted);
+}
+
+.deployment-meta code {
+	overflow-wrap: anywhere;
+}
+
+.artifact-unavailable {
+	color: #8b5a15;
+	font-weight: 700;
 }
 
 .legend {
@@ -473,6 +570,19 @@ select {
 	}
 
 	.channels {
+		grid-template-columns: 1fr;
+	}
+
+	.deployment-section-header {
+		align-items: start;
+		flex-direction: column;
+	}
+
+	.deployment-filter {
+		width: 100%;
+	}
+
+	.deployment-list {
 		grid-template-columns: 1fr;
 	}
 
