@@ -1,0 +1,52 @@
+name: Snapshot timeline data
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 7 1 * *'
+
+permissions:
+  contents: write
+
+# Serialize with Pages so the snapshot never races a source deployment.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    name: Save monthly timeline snapshot
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Run tests
+        run: npm test
+
+      - name: Generate timeline data
+        run: npm run refresh
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GUTENBERG_DIR: /tmp/no-local-gutenberg-checkout
+
+      - name: Validate refreshed snapshot
+        run: npm test
+
+      - name: Commit timeline snapshot
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/pr-release-timeline.json
+          if git diff --cached --quiet; then
+            echo 'Timeline snapshot is unchanged.'
+            exit 0
+          fi
+          git commit -m "chore: snapshot RTC release timeline $(date -u +%Y-%m)"
+          git push origin HEAD:main

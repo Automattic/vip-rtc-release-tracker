@@ -32,3 +32,7 @@ The refresh fails when current channel state or the newest channel release artif
 ## GitHub Pages
 
 `.github/workflows/pages.yml` runs tests, regenerates the complete dataset, and deploys the static site on pushes to `main`, manual dispatches, and every hour on the hour. New channel commits and releases therefore appear without source edits.
+
+`.github/workflows/snapshot.yml` also saves a validated dataset snapshot to `main` on the first of each month. This keeps the checked-in example data current and provides repository activity so GitHub does not disable scheduled workflows after 60 days of inactivity. Hourly Pages deployments alone do not update the repository. Snapshot commits use `GITHUB_TOKEN`, so they do not trigger another Pages run; the next hourly run publishes independently.
+
+If the schedule is ever disabled, re-enable `pages.yml` and `snapshot.yml` in the Actions tab (or with `gh workflow enable`) and manually run the Pages workflow. A successful run must include both data generation and the Pages deployment.
